@@ -52,6 +52,6 @@
             </div>
         </div>
     </div>
-</div>6
+</div>
 
 @endsection

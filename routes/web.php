@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
+// use App\Http\Controllers\AdminUserController;
+// use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +20,27 @@ use Illuminate\Support\Facades\Route;
 
 
 
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+
+
+require __DIR__.'/auth.php';
+Route::middleware(['auth'])->group(function () {
+    // Route::prefix('/admin')->group(function(){
+
+        // Route::group(['prefix' => 'admin'],function(){
+
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('dashboard');
+
+
 route::view('/master','layouts.master');
 route::view('/sidebar','layouts.sidebar');
-route::get('/',[DashboardController::class,'index'])->name('dashboard');
+// route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
 
 //products
 route::get('/products/create',[ProductController::class,'create'])->name('products.create');
@@ -42,10 +60,8 @@ route::get('/orders/detail/{id}',[OrderController::class,'show'])->name('orders.
 //User
 route::get('/users/index',[UserController::class,'index'])->name('users.index');
 route::get('/users/detail/{id}',[UserController::class,'detail'])->name('users.detail');
-
-
-
-
-
+// });
+// });
+});
 
 
