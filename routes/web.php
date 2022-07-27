@@ -2,6 +2,8 @@
 
 // use App\Http\Controllers\AdminUserController;
 // use App\Http\Controllers\DashboardController;
+
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
@@ -21,9 +23,9 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 
@@ -60,6 +62,15 @@ route::get('/orders/detail/{id}',[OrderController::class,'show'])->name('orders.
 //User
 route::get('/users/index',[UserController::class,'index'])->name('users.index');
 route::get('/users/detail/{id}',[UserController::class,'detail'])->name('users.detail');
+route::get('/admin/profile',[UserController::class,'profile'])->name('admin.profile');
+route::post('/admin/profile/store',[UserController::class,'store'])->name('admin.profile.store');
+
+//Fornt
+
+route::get('/',[FrontController::class,'index'])->name('front.index');
+
+
+
 // });
 // });
 });

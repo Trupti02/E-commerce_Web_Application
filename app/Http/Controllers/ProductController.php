@@ -18,8 +18,6 @@ class ProductController extends Controller
             'description' => 'required',
             'image' => 'required',
 
-
-
         ]);
         $product = new Product();
         $product->name=$request->name;
@@ -54,6 +52,15 @@ class ProductController extends Controller
     }
 
     public function update(Request $request,$id){
+        $this->validate($request, [
+            'name' => 'required',
+            'price' => 'required',
+            'description' => 'required',
+            'image' => 'required',
+
+
+
+        ]);
         $product = Product::find($id);
         $product->name=$request->name;
         $product->price=$request->price;
