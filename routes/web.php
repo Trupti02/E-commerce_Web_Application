@@ -3,7 +3,13 @@
 // use App\Http\Controllers\AdminUserController;
 // use App\Http\Controllers\DashboardController;
 
-use App\Http\Controllers\FrontController;
+// use App\Http\Controllers\Front\FrontController;
+
+use App\Http\Controllers\Front\CartController;
+use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Front\LoginController;
+use App\Http\Controllers\Front\ProfileController;
+use App\Http\Controllers\Front\RegisterController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
@@ -67,12 +73,43 @@ route::post('/admin/profile/store',[UserController::class,'store'])->name('admin
 
 //Fornt
 
-route::get('/',[FrontController::class,'index'])->name('front.index');
+// route::get('/cart/index',[FrontController::class,'index'])->name('cart.index');
+
+
+
 
 
 
 // });
 // });
 });
+
+// route::get('/cart/index',[FrontController::class,'index'])->name('cart.index');
+
+route::get('/',[HomeController::class,'index'])->name('cart');
+
+
+
+//Register
+route::get('/user/register',[RegisterController::class,'register'])->name('user.register');
+route::post('/user/store',[RegisterController::class,'store'])->name('user.store');
+//Login
+
+
+route::get('/user/login',[LoginController::class,'login'])->name('user.login');
+route::post('/user/login/store',[LoginController::class,'store'])->name('login.store');
+route::get('/user/logout',[LoginController::class,'logout'])->name('user.logout');
+
+
+//profile
+route::get('/user/profile',[ProfileController::class,'index'])->name('profile.index');
+route::get('/user/details',[ProfileController::class,'show'])->name('profile.details');
+
+
+
+route::get('/cart/index',[CartController::class,'index'])->name('cart.index');
+
+route::post('/front/index/store',[CartController::class,'store'])->name('cart.store');
+
 
 
