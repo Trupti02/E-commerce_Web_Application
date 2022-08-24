@@ -104,6 +104,8 @@ route::get('/user/logout',[LoginController::class,'logout'])->name('user.logout'
 //profile
 route::get('/user/profile',[ProfileController::class,'index'])->name('profile.index');
 route::get('/user/details',[ProfileController::class,'show'])->name('profile.details');
+route::get('/user/profile/edit',[ProfileController::class,'edit'])->name('profile.edit');
+
 
 
 

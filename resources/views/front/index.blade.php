@@ -1,5 +1,18 @@
 @extends('front.layouts.master')
 @section('content')
+    <br>
+    {{-- @if (session()->has('message'))
+<div class="alert alert-success ">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    {{ session()->get('message') }}
+</div>
+@endif --}}
+
+    @if (session()->has('msg'))
+        <div class="alert alert-success"><button type="button" class="close"
+                data-dismiss="alert">&times;</button>{{ session()->get('msg') }}</div>
+    @endif
+
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
         <h5 class="display-3"><strong>Welcome,</strong></h5>
@@ -8,10 +21,7 @@
         <a href="#" class="btn btn-warning btn-lg float-right">SHOP NOW!</a>
     </header>
 
-    @if (session()->has('msg'))
-    <div class="alert alert-success">{{session()->get('msg')}}</div>
 
-    @endif
 
     <div class="row text-center">
         @foreach ($products as $product)
@@ -35,10 +45,10 @@
                             <input type="hidden" name="price" value="{{ $product->price }}">
 
 
-                            <button type="submit" class="btn btn-primary btn-outline-dark"><i
-                                    class="fa fa-cart-plus "></i> Add To
+                            <button type="submit" class="btn btn-primary btn-outline-dark"><i class="fa fa-cart-plus "></i>
+                                Add To
                                 Cart</button>
-                            </form>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -22,4 +22,9 @@ class ProfileController extends Controller
         $order = Order::find($id);
         return view('front.profile.details',compact('order'));
     }
+
+    public function edit($id){
+        $user = User::all();
+        return view('front.profile.edit',compact('user'));
+    }
 }
