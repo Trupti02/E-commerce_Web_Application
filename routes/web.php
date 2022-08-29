@@ -54,8 +54,8 @@ route::view('/sidebar','layouts.sidebar');
 route::get('/products/create',[ProductController::class,'create'])->name('products.create');
 route::post('/products/store',[ProductController::class,'store'])->name('products.store');
 route::get('/products/index',[ProductController::class,'index'])->name('products.index');
-route::get('edit/{id}',[ProductController::class,'edit'])->name('edit');
-route::post('update/{id}',[ProductController::class,'update'])->name('update');
+route::get('edit/{id}',[ProductController::class,'edit'])->name('products.edit');
+route::post('update/{id}',[ProductController::class,'update'])->name('products.update');
 route::get('delete/{id}',[ProductController::class,'delete'])->name('delete');
 route::get('detail/{id}',[ProductController::class,'detail'])->name('products.detail');
 
@@ -103,8 +103,11 @@ route::get('/user/logout',[LoginController::class,'logout'])->name('user.logout'
 
 //profile
 route::get('/user/profile',[ProfileController::class,'index'])->name('profile.index');
-route::get('/user/details',[ProfileController::class,'show'])->name('profile.details');
-route::get('/user/profile/edit',[ProfileController::class,'edit'])->name('profile.edit');
+route::get('/user/profile/details/{id}',[ProfileController::class,'details'])->name('profile.details');
+route::get('/user/profile/edit/{id}',[ProfileController::class,'edit'])->name('profile.edit');
+route::post('/user/profile/update/{id}',[ProfileController::class,'update'])->name('profile.update');
+
+
 
 
 

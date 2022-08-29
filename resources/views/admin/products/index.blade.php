@@ -49,7 +49,7 @@
 
                                         </td>
                                         <td>
-                                            <a href="{{ route('edit', $p->id) }}"><button
+                                            <a href="{{ route('products.edit', $p->id) }}"><button
                                                     class="btn btn-sm btn-info ti-pencil-alt" title="Edit"></button></a>
                                             <a href="{{ route('delete', $p->id) }}"><button
                                                     class="btn btn-sm btn-danger ti-trash" title="Delete"></button></a>

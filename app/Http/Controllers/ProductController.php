@@ -76,6 +76,7 @@ class ProductController extends Controller
         }
 
         $product->update();
+        // dd($product);
 
         return redirect()->route('products.index')->with('message', 'Update Succesfully!');
 
