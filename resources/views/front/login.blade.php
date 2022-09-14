@@ -8,12 +8,12 @@
 <div class="container">
 
     <div class="row">
-        {{-- @if (session()->has('message'))
+        @if (session()->has('message'))
         <div class="alert alert-success ">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             {{ session()->get('message') }}
         </div>
-    @endif --}}
+    @endif
 
         <div class="col-md-12" id="register">
             @if (count($errors) > 0)

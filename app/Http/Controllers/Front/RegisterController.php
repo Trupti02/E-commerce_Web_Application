@@ -35,7 +35,7 @@ class RegisterController extends Controller
             'password' => bcrypt($request->password),
 
         ]);
-        return redirect()->back()->with('msg','User has been created successfully !');
+        return redirect()->route('user.login')->with('msg','User has been created successfully !');
 
 
     }

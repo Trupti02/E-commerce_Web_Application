@@ -112,9 +112,12 @@ route::post('/user/profile/update/{id}',[ProfileController::class,'update'])->na
 
 
 
-route::get('/cart/index',[CartController::class,'index'])->name('cart.index');
+route::get('/cart',[CartController::class,'index'])->name('cart.index');
 
 route::post('/front/index/store',[CartController::class,'store'])->name('cart.store');
+
+route::get('/cart/empty',[CartController::class,'empty'])->name('cart.empty');
+
 
 
 

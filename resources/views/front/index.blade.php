@@ -13,6 +13,7 @@
                 data-dismiss="alert">&times;</button>{{ session()->get('msg') }}</div>
     @endif
 
+
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
         <h5 class="display-3"><strong>Welcome,</strong></h5>
@@ -30,6 +31,8 @@
                     <img class="card-img-top" src="{{ asset('uploads/' . $product->image) }}" alt="" height="200px"
                         width="100px">
 
+
+
                     <div class="card-body">
                         <h5 class="card-title">{{ $product->name }}</h5>
                         <p class="card-text">
@@ -37,7 +40,7 @@
                         </p>
                     </div>
                     <div class="card-footer">
-                        <strong>${{ $product->price }}</strong> &nbsp;
+                        <strong>Rs. {{ $product->price }}</strong> &nbsp;
                         <form action="{{ route('cart.store') }}" method="POST">
                             @csrf
                             <input type="hidden" name="id" value="{{ $product->id }}">
