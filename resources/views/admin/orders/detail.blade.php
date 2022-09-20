@@ -36,7 +36,7 @@
                             <td>{{@$order->OrderItem[0]->price}}</td>
                             <td>
                                 @if ($order->status)
-                                <span class="label label-success">Comfirmed</span>
+                                <span class="label label-success">Confirmed</span>
                                 @else
                                 <span class="label label-warning">Pending</span>
                                 @endif

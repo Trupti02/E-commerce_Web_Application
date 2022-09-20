@@ -26,4 +26,11 @@ class CartController extends Controller
     public function empty(){
         Cart::destroy();
     }
+
+    public function remove($id){
+        Cart::remove($id);
+        return redirect()->back()->with('msg','Item has been removed from the cart !');
+    }
+
+
 }

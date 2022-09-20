@@ -62,7 +62,7 @@ route::get('detail/{id}',[ProductController::class,'detail'])->name('products.de
 //orders
 route::get('/orders/index',[OrderController::class,'index'])->name('order.index');
 route::get('orders/confirm/{id}',[OrderController::class,'confirm'])->name('orders.confirm');
-route::get('orders/prnding/{id}',[OrderController::class,'pending'])->name('orders.pending');
+route::get('orders/pending/{id}',[OrderController::class,'pending'])->name('orders.pending');
 route::get('/orders/detail/{id}',[OrderController::class,'show'])->name('orders.detail');
 
 //User
@@ -117,6 +117,8 @@ route::get('/cart',[CartController::class,'index'])->name('cart.index');
 route::post('/front/index/store',[CartController::class,'store'])->name('cart.store');
 
 route::get('/cart/empty',[CartController::class,'empty'])->name('cart.empty');
+
+route::delete('/cart/remove/{id}',[CartController::class,'remove'])->name('cart.remove');
 
 
 
