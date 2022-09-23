@@ -70,6 +70,8 @@
                                             <option {{ $item->qty == 3 ? 'selected' : '' }}>3</option>
                                             <option {{ $item->qty == 4 ? 'selected' : '' }}>4</option>
                                         </select>
+
+
                                     </td>
 
                                     <td>Rs. {{ $item->total() }}</td>
@@ -199,4 +201,23 @@
 
         </div>
     </div>
+    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+    <script>
+        const className = document.querySelectorAll('.qty');
+        Array.from(className).forEach(function(el) {
+            el.addEventListener('change', function() {
+                const id = el.getAttribute('data-id');
+                axios.patch(`/cart/update/${id}`, {
+                        qty: this.value
+                    })
+                    .then(function(response) {
+                        location.reload();
+                    })
+                    .catch(function(error) {
+                        location.reload();
+                    });
+                console.log(id);
+            })
+        })
+    </script>
 @endsection

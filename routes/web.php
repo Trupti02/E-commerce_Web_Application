@@ -109,7 +109,7 @@ route::post('/user/profile/update/{id}',[ProfileController::class,'update'])->na
 
 
 
-
+//cart
 
 
 route::get('/cart',[CartController::class,'index'])->name('cart.index');
@@ -119,6 +119,7 @@ route::post('/front/index/store',[CartController::class,'store'])->name('cart.st
 route::get('/cart/empty',[CartController::class,'empty'])->name('cart.empty');
 
 route::delete('/cart/remove/{id}',[CartController::class,'remove'])->name('cart.remove');
+route::patch('/cart/update/{id}',[CartController::class,'update'])->name('cart.update');
 
 
 
