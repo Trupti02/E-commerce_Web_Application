@@ -14,7 +14,7 @@ class HomeController extends Controller
         return view('front.index',compact('products'));
     }
 
-   
+
 
 
 

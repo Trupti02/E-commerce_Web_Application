@@ -86,7 +86,7 @@ route::post('/admin/profile/store',[UserController::class,'store'])->name('admin
 
 // route::get('/cart/index',[FrontController::class,'index'])->name('cart.index');
 
-route::get('/',[HomeController::class,'index'])->name('cart');
+route::get('/',[HomeController::class,'index'])->name('index');
 
 
 
@@ -114,7 +114,8 @@ route::post('/user/profile/update/{id}',[ProfileController::class,'update'])->na
 
 route::get('/cart',[CartController::class,'index'])->name('cart.index');
 
-route::post('/front/index/store',[CartController::class,'store'])->name('cart.store');
+route::post('/cart/store',[CartController::class,'store'])->name('cart.store');
+// route::post('/store/cart',[CartController::class,'store'])->name('store.cart');
 
 route::get('/cart/empty',[CartController::class,'empty'])->name('cart.empty');
 

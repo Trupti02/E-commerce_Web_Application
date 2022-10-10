@@ -43,10 +43,10 @@
                                 ?>
 
                                 <tr>
-                                    <td><img src="{{ asset('uploads' . '/' . $product_data->image) }}" style="width: 5em">
+                                    <td><img src="{{ asset('uploads' . '/' . @$product_data->image) }}" style="width: 5em">
                                     </td>
                                     <td>
-                                        <strong>{{ $item->name }}</strong><br> {{ $product_data->description }}
+                                        <strong>{{ $item->name }}</strong><br> {{ @$product_data->description }}
                                     </td>
 
                                     <td>
@@ -74,7 +74,7 @@
 
                                     </td>
 
-                                    <td>Rs. {{ $item->total() }}</td>
+                                    <td>Rs. {{$item->total}}</td>
                                 </tr>
                             @endforeach
 
@@ -201,6 +201,7 @@
 
         </div>
     </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
     <script>
         const className = document.querySelectorAll('.qty');
