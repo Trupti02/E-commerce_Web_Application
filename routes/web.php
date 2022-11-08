@@ -121,6 +121,16 @@ route::get('/cart/empty',[CartController::class,'empty'])->name('cart.empty');
 
 route::delete('/cart/remove/{id}',[CartController::class,'remove'])->name('cart.remove');
 route::patch('/cart/update/{id}',[CartController::class,'update'])->name('cart.update');
+Route::get('/cart/saveForLater/{id}', [CartController::class, 'saveForLater'])->name('cart.saveForLater');
+Route::delete('/saveForLater/destroy/{id}', [CartController::class, 'saveForLaterDestroy'])->name('cart.saveForLaterDestroy');
+Route::get('/cart/moveToCart/{id}', [CartController::class, 'moveToCart'])->name('cart.moveToCart');
+
+//checkout
+
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+
+
 
 
 
