@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\Front\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ProductController;
@@ -23,24 +24,29 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //product
-route::get('/products/index',[ProductController::class,'index'])->name('products.index');
-route::post('/products/store',[ProductController::class,'store'])->name('products.store');
-route::post('update/{id}',[ProductController::class,'update'])->name('products.update');
-route::get('delete/{id}',[ProductController::class,'delete'])->name('delete');
+route::get('/products/index',[ProductController::class,'index'])->name('products.index')->middleware('auth:api');
+route::post('/products/store',[ProductController::class,'store'])->name('products.store')->middleware('auth:api');
+route::post('update/{id}',[ProductController::class,'update'])->name('products.update')->middleware('auth:api');
+route::get('delete/{id}',[ProductController::class,'delete'])->name('delete')->middleware('auth:api');
 
 //order
 route::get('/orders/index',[OrderController::class,'index'])->name('order.index');
-route::get('orders/confirm/{id}',[OrderController::class,'confirm'])->name('orders.confirm');
+route::get('orders/confirm/{id}',[OrderController::class,'confirm'])->name('orders.confirm')->middleware('auth:api');
 
 
 //user
-route::get('/users/index',[UserController::class,'index'])->name('users.index');
-route::post('/admin/profile/store/{id}',[UserController::class,'store'])->name('admin.profile.store');
+route::get('/users/index',[UserController::class,'index'])->name('users.index')->middleware('auth:api');
+route::post('/admin/profile/store/{id}',[UserController::class,'store'])->name('admin.profile.store')->middleware('auth:api');
 
 //Front
 
 //login
-route::post('/login',[UserController::class,'login']);
+route::post('/login',[UserController::class,'login'])->middleware('auth:api');
+
+//profile
+route::get('/user/profile',[ProfileController::class,'index'])->name('profile.index');
+route::post('/user/profile/update/{id}',[ProfileController::class,'update'])->name('profile.update');
+
 
 
 
